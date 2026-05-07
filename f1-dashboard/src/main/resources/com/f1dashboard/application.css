@@ -1,0 +1,347 @@
+/* application.css — Direction A: Refined Classic */
+
+/* ── Color tokens ──────────────────────────────────────────── */
+.root {
+  -color-bg-0:      #0f1424;
+  -color-bg-1:      #141a2e;
+  -color-surface:   #1a2140;
+  -color-surface-2: #202848;
+  -color-stroke:    #242c4c;
+  -color-accent:    #e10600;
+  -color-accent-dim:#a40400;
+  -color-text:      #eef0f8;
+  -color-muted:     #8b92ab;
+  -color-dim:       #5a6178;
+
+  -fx-background-color: -color-bg-1;
+  -fx-font-family: "Inter";
+  -fx-font-size: 13px;
+  -fx-text-fill: -color-text;
+}
+
+/* ── App header ────────────────────────────────────────────── */
+.app-header {
+  -fx-background-color: -color-surface;
+  -fx-padding: 12 20 12 20;
+  -fx-border-color: transparent transparent -color-stroke transparent;
+  -fx-border-width: 0 0 1 0;
+}
+.app-header .stripe {
+  -fx-background-color: -color-accent;
+  -fx-background-radius: 1;
+  -fx-pref-width: 4;
+  -fx-min-width: 4;
+  -fx-max-width: 4;
+  -fx-pref-height: 22;
+  -fx-max-height: 22;
+}
+.app-header .title {
+  -fx-font-family: "Rajdhani";
+  -fx-font-size: 18px;
+  -fx-font-weight: bold;
+  -fx-text-fill: -color-text;
+}
+.app-header .subtitle {
+  -fx-font-size: 11px;
+  -fx-text-fill: -color-dim;
+}
+.app-header .meta {
+  -fx-font-family: "JetBrains Mono";
+  -fx-font-size: 11px;
+  -fx-text-fill: -color-muted;
+}
+
+/* ── Labels (global default) ───────────────────────────────── */
+.label { -fx-text-fill: -color-text; }
+
+/* ── Tab pane ──────────────────────────────────────────────── */
+.tab-pane .tab-header-background { -fx-background-color: -color-bg-1; }
+.tab-pane .tab {
+  -fx-background-color: transparent;
+  -fx-padding: 6 18;
+}
+.tab-pane .tab:selected {
+  -fx-background-color: transparent;
+  -fx-border-color: transparent transparent -color-accent transparent;
+  -fx-border-width: 0 0 2 0;
+}
+.tab-pane .tab .tab-label { -fx-text-fill: -color-muted; -fx-font-weight: 600; }
+.tab-pane .tab:selected .tab-label { -fx-text-fill: -color-text; }
+
+/* ── Text field & ComboBox ─────────────────────────────────── */
+.text-field, .combo-box-base {
+  -fx-background-color: -color-surface;
+  -fx-background-radius: 6;
+  -fx-border-color: -color-stroke;
+  -fx-border-radius: 6;
+  -fx-text-fill: -color-text;
+  -fx-prompt-text-fill: -color-muted;
+  -fx-padding: 5 10;
+}
+.combo-box-base .arrow-button { -fx-background-color: transparent; }
+.combo-box-base .arrow { -fx-background-color: -color-muted; }
+/* Selected-value cell shown inside the closed ComboBox button */
+.combo-box-base > .list-cell {
+  -fx-text-fill: -color-text;
+  -fx-background-color: transparent;
+  -fx-padding: 0 4 0 0;
+}
+.combo-box-popup .list-view {
+  -fx-background-color: -color-surface;
+  -fx-border-color: -color-stroke;
+}
+.combo-box-popup .list-cell { -fx-background-color: transparent; -fx-text-fill: -color-text; }
+.combo-box-popup .list-cell:filled:hover {
+  -fx-background-color: -color-surface-2;
+  -fx-text-fill: -color-text;
+}
+.combo-box-popup .list-cell:filled:selected {
+  -fx-background-color: -color-surface-2;
+  -fx-text-fill: -color-text;
+}
+
+/* ── Buttons ───────────────────────────────────────────────── */
+.button {
+  -fx-background-color: -color-accent;
+  -fx-text-fill: white;
+  -fx-font-weight: 600;
+  -fx-background-radius: 6;
+  -fx-padding: 5 14;
+  -fx-cursor: hand;
+}
+.button:hover   { -fx-background-color: derive(-color-accent, -8%); }
+.button:pressed { -fx-background-color: derive(-color-accent, -20%); }
+
+/* ── TableView ─────────────────────────────────────────────── */
+.table-view {
+  -fx-background-color: -color-bg-1;
+  -fx-background-insets: 0;
+  -fx-padding: 0;
+}
+.table-view .column-header-background {
+  -fx-background-color: -color-bg-0;
+}
+.table-view .column-header {
+  -fx-background-color: -color-bg-0;
+  -fx-border-color: transparent transparent -color-stroke transparent;
+  -fx-border-width: 0 0 1 0;
+}
+.table-view .filler {
+  -fx-background-color: -color-bg-0;
+  -fx-border-color: transparent transparent -color-stroke transparent;
+  -fx-border-width: 0 0 1 0;
+}
+.table-view .column-header .label {
+  -fx-text-fill: -color-muted;
+  -fx-font-size: 11px;
+  -fx-font-weight: 600;
+  -fx-alignment: CENTER_LEFT;
+}
+.table-row-cell {
+  -fx-background-color: -color-bg-1;
+  -fx-border-color: transparent transparent -color-stroke transparent;
+  -fx-border-width: 0 0 1 0;
+}
+.table-row-cell:odd { -fx-background-color: -color-surface; }
+.table-row-cell:filled:hover { -fx-background-color: -color-surface-2; }
+.table-row-cell:filled:selected,
+.table-view:focused .table-row-cell:filled:selected,
+.table-row-cell:filled:selected:focused,
+.table-view:focused .table-row-cell:filled:selected:focused {
+  -fx-background-color: derive(-color-accent, -55%);
+  -fx-border-color: -color-accent transparent transparent transparent;
+  -fx-border-width: 0 0 0 3;
+}
+
+/* Lock text light in every selection/focus/pressed state */
+.table-cell {
+  -fx-text-fill: -color-text;
+  -fx-font-size: 13px;
+  -fx-background-color: transparent;
+  -fx-background-insets: 0;
+  -fx-border-color: transparent;
+  -fx-padding: 0 8;
+}
+.table-cell:focused,
+.table-cell:selected,
+.table-cell:selected:focused,
+.table-cell:pressed,
+.table-view:focused .table-cell:focused,
+.table-view:focused .table-cell:selected,
+.table-view:focused .table-cell:selected:focused {
+  -fx-background-color: transparent;
+  -fx-background-insets: 0;
+  -fx-text-fill: -color-text;
+}
+.table-row-cell .table-cell,
+.table-row-cell:selected .table-cell,
+.table-row-cell:focused .table-cell,
+.table-row-cell:selected:focused .table-cell,
+.table-row-cell:pressed .table-cell,
+.table-view:focused .table-row-cell:selected .table-cell,
+.table-view:focused .table-row-cell:focused .table-cell,
+.table-view:focused .table-row-cell:selected:focused .table-cell {
+  -fx-background-color: transparent;
+  -fx-background-insets: 0;
+  -fx-text-fill: -color-text;
+}
+/* Inner Text node — covers the lowest-level fill override */
+.table-cell .text,
+.table-row-cell .text,
+.table-row-cell:selected .text,
+.table-row-cell:focused .text,
+.table-row-cell:selected:focused .text,
+.table-view:focused .table-row-cell:selected .text,
+.table-view:focused .table-row-cell:selected:focused .text { -fx-fill: -color-text; }
+
+/* ── Podium row highlights ─────────────────────────────────── */
+.pos-p1 { -fx-background-color: rgba(255, 195, 0, 0.10); }
+.pos-p1:hover { -fx-background-color: rgba(255, 195, 0, 0.17); }
+.pos-p1 .table-cell { -fx-text-fill: -color-text; }
+.pos-p1 .pos-badge { -fx-text-fill: #ffc300; -fx-font-weight: 700; }
+
+.pos-p2 { -fx-background-color: rgba(192, 200, 220, 0.10); }
+.pos-p2:hover { -fx-background-color: rgba(192, 200, 220, 0.17); }
+.pos-p2 .pos-badge { -fx-text-fill: #b8c4d8; -fx-font-weight: 700; }
+
+.pos-p3 { -fx-background-color: rgba(205, 120, 50, 0.10); }
+.pos-p3:hover { -fx-background-color: rgba(205, 120, 50, 0.17); }
+.pos-p3 .pos-badge { -fx-text-fill: #cd8840; -fx-font-weight: 700; }
+
+.pos-dnf .table-cell { -fx-text-fill: -color-dim; }
+.pos-dnf .pos-badge { -fx-text-fill: -color-dim; }
+
+/* Position badge label (in the Pos column cell) */
+.pos-badge {
+  -fx-font-family: "JetBrains Mono";
+  -fx-font-size: 12px;
+  -fx-font-weight: 600;
+  -fx-text-fill: -color-muted;
+}
+
+/* Race section header (label above results table) */
+.race-header {
+  -fx-background-color: -color-surface;
+  -fx-padding: 10 16 10 16;
+  -fx-border-color: transparent transparent -color-stroke transparent;
+  -fx-border-width: 0 0 1 0;
+}
+.race-header .race-title {
+  -fx-font-family: "Rajdhani";
+  -fx-font-size: 16px;
+  -fx-font-weight: 700;
+  -fx-text-fill: -color-text;
+}
+.race-header .race-round {
+  -fx-font-family: "JetBrains Mono";
+  -fx-font-size: 11px;
+  -fx-text-fill: -color-accent;
+  -fx-font-weight: 600;
+}
+
+/* Race list panel header */
+.panel-header {
+  -fx-background-color: -color-bg-0;
+  -fx-padding: 8 16;
+  -fx-border-color: transparent transparent -color-stroke transparent;
+  -fx-border-width: 0 0 1 0;
+}
+.panel-header .label {
+  -fx-font-size: 10px;
+  -fx-font-weight: 600;
+  -fx-text-fill: -color-muted;
+}
+
+/* ── SplitPane ─────────────────────────────────────────────── */
+.split-pane { -fx-background-color: -color-bg-1; -fx-padding: 0; }
+.split-pane-divider { -fx-background-color: -color-stroke; -fx-pref-width: 1; -fx-pref-height: 1; }
+
+/* ── Stat cards ────────────────────────────────────────────── */
+.stat-card {
+  -fx-background-color: -color-surface;
+  -fx-background-radius: 8;
+  -fx-border-color: -color-stroke;
+  -fx-border-radius: 8;
+  -fx-padding: 12 14 10 14;
+  -fx-spacing: 4;
+}
+.stat-card .stat-label {
+  -fx-text-fill: -color-muted;
+  -fx-font-size: 10px;
+  -fx-font-weight: 600;
+}
+.stat-card .stat-value {
+  -fx-text-fill: -color-text;
+  -fx-font-family: "Rajdhani";
+  -fx-font-size: 30px;
+  -fx-font-weight: 700;
+}
+
+/* Hero card — championships */
+.stat-card.hero {
+  -fx-background-color: linear-gradient(to bottom, #2a0b0f, #1a2140);
+  -fx-border-color: #4a1015;
+}
+
+/* ── Detail panel ──────────────────────────────────────────── */
+.detail-panel {
+  -fx-background-color: -color-bg-1;
+  -fx-padding: 16;
+  -fx-spacing: 14;
+}
+.detail-panel .driver-name {
+  -fx-font-family: "Rajdhani";
+  -fx-font-size: 28px;
+  -fx-font-weight: 700;
+  -fx-text-fill: -color-text;
+}
+.detail-panel .info-label {
+  -fx-font-size: 12px;
+  -fx-text-fill: -color-muted;
+}
+.detail-panel .divider {
+  -fx-background-color: -color-stroke;
+  -fx-pref-height: 1;
+  -fx-max-height: 1;
+}
+
+/* ── Charts ────────────────────────────────────────────────── */
+.chart {
+  -fx-background-color: -color-surface;
+  -fx-background-radius: 8;
+  -fx-border-color: -color-stroke;
+  -fx-border-radius: 8;
+  -fx-padding: 12;
+}
+.chart-plot-background { -fx-background-color: transparent; }
+.chart-vertical-grid-lines,
+.chart-horizontal-grid-lines {
+  -fx-stroke: -color-stroke;
+  -fx-stroke-dash-array: 2 3;
+}
+.chart-series-line { -fx-stroke: -color-accent; -fx-stroke-width: 2px; }
+.default-color0.chart-line-symbol {
+  -fx-background-color: -color-bg-0, -color-accent;
+  -fx-background-insets: 0, 2;
+  -fx-background-radius: 4;
+  -fx-padding: 4;
+}
+.default-color0.chart-bar { -fx-bar-fill: -color-accent; }
+.axis {
+  -fx-tick-label-fill: -color-dim;
+  -fx-font-family: "JetBrains Mono";
+  -fx-font-size: 10px;
+}
+.axis .axis-label { -fx-text-fill: -color-muted; }
+.chart-legend { -fx-background-color: transparent; }
+.chart-legend-item-symbol { -fx-background-color: -color-accent, -color-accent; }
+
+/* ── Loading screen ────────────────────────────────────────── */
+.loading-title {
+  -fx-font-family: "Rajdhani";
+  -fx-font-size: 28px;
+  -fx-font-weight: 700;
+  -fx-text-fill: -color-text;
+}
+.progress-bar > .track { -fx-background-color: -color-surface; -fx-background-radius: 3; }
+.progress-bar > .bar   { -fx-background-color: -color-accent;  -fx-background-radius: 3; }

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.f1dashboard.ui.ConstructorViewController">
+  <top>
+    <HBox spacing="10" styleClass="toolbar-row">
+      <padding><Insets top="8" right="8" bottom="8" left="8"/></padding>
+      <TextField fx:id="searchField" promptText="Search constructor..." prefWidth="250"/>
+      <Button text="Search" onAction="#onSearch"/>
+      <Button text="Clear" onAction="#onClear"/>
+      <Label text="Season:" style="-fx-padding: 0 0 0 10; -fx-text-fill: -color-muted;"/>
+      <ComboBox fx:id="yearFilter" prefWidth="110"/>
+    </HBox>
+  </top>
+  <center>
+    <SplitPane dividerPositions="0.42">
+      <TableView fx:id="constructorTable" minWidth="360">
+        <columns>
+          <TableColumn fx:id="colName"        text="Constructor" prefWidth="160"/>
+          <TableColumn fx:id="colNationality" text="Nationality"  prefWidth="100"/>
+          <TableColumn fx:id="colRaces"       text="Races"        prefWidth="55"/>
+          <TableColumn fx:id="colWins"        text="Wins"         prefWidth="50"/>
+          <TableColumn fx:id="colPoints"      text="Points"       prefWidth="70"/>
+        </columns>
+      </TableView>
+      <VBox styleClass="detail-panel" spacing="14">
+        <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+        <!-- Identity -->
+        <Label fx:id="detailName" styleClass="driver-name"/>
+        <HBox spacing="16">
+          <Label fx:id="detailNationality" styleClass="info-label"/>
+        </HBox>
+        <Region styleClass="divider"/>
+        <!-- Stat cards grid -->
+        <GridPane hgap="8" vgap="8">
+          <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="33.3"/>
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="33.3"/>
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="33.4"/>
+          </columnConstraints>
+          <!-- Row 0: Races, Wins, Podiums -->
+          <VBox styleClass="stat-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <Label text="RACES" styleClass="stat-label"/>
+            <Label fx:id="detailRaces" styleClass="stat-value"/>
+          </VBox>
+          <VBox styleClass="stat-card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <Label text="WINS" styleClass="stat-label"/>
+            <Label fx:id="detailWins" styleClass="stat-value"/>
+          </VBox>
+          <VBox styleClass="stat-card" GridPane.columnIndex="2" GridPane.rowIndex="0">
+            <Label text="PODIUMS" styleClass="stat-label"/>
+            <Label fx:id="detailPodiums" styleClass="stat-value"/>
+          </VBox>
+          <!-- Row 1: Points, Seasons -->
+          <VBox styleClass="stat-card" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <Label text="POINTS" styleClass="stat-label"/>
+            <Label fx:id="detailPoints" styleClass="stat-value"/>
+          </VBox>
+          <VBox styleClass="stat-card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Label text="SEASONS" styleClass="stat-label"/>
+            <Label fx:id="detailSeasons" styleClass="stat-value"/>
+          </VBox>
+          <!-- Row 2: Championships hero -->
+          <VBox styleClass="stat-card hero" GridPane.columnIndex="0" GridPane.rowIndex="2"
+                GridPane.columnSpan="3">
+            <Label text="CHAMPIONSHIPS" styleClass="stat-label"/>
+            <Label fx:id="detailChampionships" styleClass="stat-value"/>
+          </VBox>
+        </GridPane>
+        <!-- Chart -->
+        <BarChart fx:id="winsChart" prefHeight="220" animated="false" VBox.vgrow="ALWAYS">
+          <xAxis><CategoryAxis label="Season"/></xAxis>
+          <yAxis><NumberAxis label="Wins"/></yAxis>
+        </BarChart>
+      </VBox>
+    </SplitPane>
+  </center>
+</BorderPane>

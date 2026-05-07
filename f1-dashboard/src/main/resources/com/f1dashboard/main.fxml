@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.f1dashboard.ui.MainController">
+  <HBox styleClass="app-header" alignment="CENTER_LEFT" spacing="10">
+    <Region styleClass="stripe"/>
+    <Label text="RACING ANALYTICS" styleClass="title" style="-fx-padding: 0 0 0 12;"/>
+    <Label text="DASHBOARD · 2025" styleClass="subtitle"/>
+    <Region HBox.hgrow="ALWAYS"/>
+    <Label text="F1 1950–2020" styleClass="meta"/>
+  </HBox>
+  <TabPane VBox.vgrow="ALWAYS" tabClosingPolicy="UNAVAILABLE">
+    <Tab text="Drivers">
+      <fx:include fx:id="driverViewInclude" source="driver_view.fxml"/>
+    </Tab>
+    <Tab text="Constructors">
+      <fx:include fx:id="constructorViewInclude" source="constructor_view.fxml"/>
+    </Tab>
+    <Tab text="Races">
+      <fx:include fx:id="raceViewInclude" source="race_view.fxml"/>
+    </Tab>
+  </TabPane>
+</VBox>

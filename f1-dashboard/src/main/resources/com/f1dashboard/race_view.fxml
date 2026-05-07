@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.f1dashboard.ui.RaceViewController">
+  <top>
+    <HBox spacing="12" styleClass="toolbar-row" alignment="CENTER_LEFT">
+      <padding><Insets top="10" right="16" bottom="10" left="16"/></padding>
+      <Label text="SEASON" style="-fx-font-size: 10px; -fx-font-weight: 600; -fx-text-fill: -color-muted;"/>
+      <ComboBox fx:id="yearPicker" prefWidth="110"/>
+    </HBox>
+  </top>
+  <center>
+    <SplitPane dividerPositions="0.34">
+      <!-- Left: race list -->
+      <VBox>
+        <HBox styleClass="panel-header">
+          <Label text="ROUNDS"/>
+        </HBox>
+        <TableView fx:id="raceTable" VBox.vgrow="ALWAYS" minWidth="260">
+          <columns>
+            <TableColumn fx:id="colRound"    text="Rd"         prefWidth="44"/>
+            <TableColumn fx:id="colRaceName" text="Grand Prix" prefWidth="180"/>
+            <TableColumn fx:id="colDate"     text="Date"       prefWidth="88"/>
+          </columns>
+        </TableView>
+      </VBox>
+      <!-- Right: results -->
+      <VBox>
+        <VBox styleClass="race-header">
+          <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label fx:id="roundLabel" styleClass="race-round" text="ROUND —"/>
+            <Label fx:id="selectedRaceLabel" styleClass="race-title" text="Select a race"/>
+          </HBox>
+        </VBox>
+        <TableView fx:id="resultsTable" VBox.vgrow="ALWAYS">
+          <columns>
+            <TableColumn fx:id="colPos"         text="Pos"         prefWidth="50"/>
+            <TableColumn fx:id="colDriver"      text="Driver"      prefWidth="160"/>
+            <TableColumn fx:id="colConstructor" text="Constructor" prefWidth="140"/>
+            <TableColumn fx:id="colLaps"        text="Laps"        prefWidth="55"/>
+            <TableColumn fx:id="colPoints"      text="Pts"         prefWidth="52"/>
+            <TableColumn fx:id="colStatus"      text="Status"      prefWidth="120"/>
+          </columns>
+          <placeholder>
+            <Label text="Select a race to view results"
+                   style="-fx-text-fill: -color-dim; -fx-font-size: 13px;"/>
+          </placeholder>
+        </TableView>
+      </VBox>
+    </SplitPane>
+  </center>
+</BorderPane>
