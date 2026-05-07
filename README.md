@@ -14,7 +14,7 @@ A desktop Java application that loads a Formula 1 historical dataset from local 
 
 ## Video Demo
 
-[demo video — coming soon]
+<video src="Demo.mov" controls width="100%"></video>
 
 ---
 
