@@ -2,6 +2,8 @@
 
 **Author:** Nihal Ajayakumar - na4132
 
+**GitHub:** https://github.com/anihal/F1-Dashboard-Java
+
 ---
 
 ## Overview
@@ -47,11 +49,6 @@ If `java` is not found after install:
 export JAVA_HOME=$(brew --prefix openjdk@17)
 export PATH="$JAVA_HOME/bin:$PATH"
 ```
-
-### Windows
-
-1. Download and install JDK 17 from [Adoptium](https://adoptium.net)
-2. Download Maven from [maven.apache.org](https://maven.apache.org/download.cgi), unzip it, and add its `bin/` folder to your `PATH`
 
 ### Linux (apt)
 
