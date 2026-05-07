@@ -43,7 +43,7 @@ public class DriverViewController {
 
         List<String> years = new ArrayList<>();
         years.add("All");
-        for (int y = 2020; y >= 1950; y--) years.add(String.valueOf(y));
+        for (int y : dao.getAvailableYears()) years.add(String.valueOf(y));
         yearFilter.setItems(FXCollections.observableArrayList(years));
         yearFilter.setValue("All");
         yearFilter.setOnAction(e -> loadTopDrivers());

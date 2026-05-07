@@ -120,4 +120,14 @@ public class ConstructorDao {
         }
         return map;
     }
+
+    public List<Integer> getAvailableYears() throws SQLException {
+        List<Integer> years = new ArrayList<>();
+        try (Statement st = conn.createStatement();
+             ResultSet rs = st.executeQuery(
+                 "SELECT DISTINCT year FROM races ORDER BY year DESC")) {
+            while (rs.next()) years.add(rs.getInt(1));
+        }
+        return years;
+    }
 }
